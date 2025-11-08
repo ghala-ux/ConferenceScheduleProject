@@ -43,7 +43,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Location = new System.Drawing.Point(245, 90);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(155, 13);
+            this.lblTitle.Size = new System.Drawing.Size(154, 13);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Conference Schedule Manager";
             this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
@@ -110,7 +110,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(483, 147);
+            this.button1.Location = new System.Drawing.Point(459, 212);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 10;
