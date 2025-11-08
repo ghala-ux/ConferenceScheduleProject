@@ -73,5 +73,41 @@ namespace ConferenceScheduleM
         {
 
         }
+        public void ApplyDarkMode()
+        {
+            this.BackColor = Color.Black;
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Label)
+                {
+                    ctrl.ForeColor = Color.White;
+                }
+                else if (ctrl is Button)
+                {
+                    ctrl.BackColor = Color.Gray;
+                    ctrl.ForeColor = Color.White;
+                }
+                else if (ctrl is TextBox)
+                {
+                    ctrl.BackColor = Color.FromArgb(30, 30, 30);
+                    ctrl.ForeColor = Color.White;
+                }
+                else if (ctrl is ListView)
+                {
+                    ctrl.BackColor = Color.FromArgb(30, 30, 30);
+                    ctrl.ForeColor = Color.White;
+                }
+                else if (ctrl is DataGridView dgv)
+                {
+                    dgv.BackgroundColor = Color.FromArgb(30, 30, 30);
+                    dgv.DefaultCellStyle.BackColor = Color.FromArgb(30, 30, 30);
+                    dgv.DefaultCellStyle.ForeColor = Color.White;
+                    dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.DimGray;
+                    dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    dgv.EnableHeadersVisualStyles = false;
+                }
+            }
+        }
     }
 }

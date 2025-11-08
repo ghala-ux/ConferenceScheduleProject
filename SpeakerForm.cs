@@ -125,6 +125,29 @@ namespace ConferenceScheduleM
         {
 
         }
+        //دالة اللون 
+        public void ApplyDarkMode()
+        {
+            this.BackColor = Color.Black;
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Label)
+                {
+                    ctrl.ForeColor = Color.White;
+                }
+                else if (ctrl is TextBox)
+                {
+                    ctrl.BackColor = Color.FromArgb(30, 30, 30);
+                    ctrl.ForeColor = Color.White;
+                }
+                else if (ctrl is Button)
+                {
+                    ctrl.BackColor = Color.Gray;
+                    ctrl.ForeColor = Color.White;
+                }
+            }
+        }
     }
 }
     

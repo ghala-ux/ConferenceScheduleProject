@@ -66,5 +66,44 @@ namespace ConferenceScheduleM
         {
             this.Close();
         }
+        public void ApplyDarkMode()
+        {
+            this.BackColor = Color.Black;
+            this.ForeColor = Color.White;
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Button)
+                {
+                    ctrl.BackColor = Color.Gray;
+                    ctrl.ForeColor = Color.White;
+                }
+                else if (ctrl is TextBox)
+                {
+                    ctrl.BackColor = Color.DimGray;
+                    ctrl.ForeColor = Color.White;
+                }
+                else if (ctrl is Label)
+                {
+                    ctrl.ForeColor = Color.White;
+                }
+                else if (ctrl is ComboBox)
+                {
+                    ctrl.BackColor = Color.DimGray;
+                    ctrl.ForeColor = Color.White;
+                }
+                // casting
+                else if (ctrl is DateTimePicker picker)
+                {
+                    picker.CalendarMonthBackground = Color.DimGray;
+                    picker.CalendarForeColor = Color.White;
+                    picker.BackColor = Color.DimGray;
+                    picker.ForeColor = Color.White;
+                }
+
+            }
+        }
+        }
+
     }
-}
+

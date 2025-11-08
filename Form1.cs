@@ -14,6 +14,8 @@ namespace ConferenceScheduleM
     {
         private ConferenceManager<Session> sessionManager;
         private ConferenceManager<Speaker> speakerManager;
+        public bool isDarkMode = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -25,19 +27,33 @@ namespace ConferenceScheduleM
         {
 
             SessionForm sessionForm = new SessionForm(sessionManager);
+            if (isDarkMode)
+            {
+                sessionForm.ApplyDarkMode();
+            }
+
             sessionForm.Show();
         }
 
         private void btnManageSpeakers_Click(object sender, EventArgs e)
         {
             SpeakerForm speakerForm = new SpeakerForm(speakerManager);
+            if (isDarkMode)
+            {
+                speakerForm.ApplyDarkMode();
+            }
             speakerForm.Show();
         }
 
         private void btnViewAll_Click(object sender, EventArgs e)
         {
             ViewAllForm viewForm = new ViewAllForm(sessionManager, speakerManager);
-            viewForm.Show();
+            if (isDarkMode)
+            {
+                viewForm.ApplyDarkMode();
+                viewForm.Show();
+            }
+                
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -59,6 +75,43 @@ namespace ConferenceScheduleM
         }
 
         private void lblTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.BackColor = SystemColors.Control;
+            lblTitle.ForeColor = Color.Black;
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Button)
+                {
+                    ctrl.BackColor = SystemColors.Control;
+                    ctrl.ForeColor = Color.Black;
+                    isDarkMode = false;
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Black;
+            lblTitle.ForeColor = Color.White;
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is Button)
+                {
+                    ctrl.BackColor = Color.Gray;
+                    ctrl.ForeColor = Color.White;
+                }
+            }
+            isDarkMode = true;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
         }

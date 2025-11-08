@@ -42,7 +42,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Location = new System.Drawing.Point(297, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(89, 13);
+            this.lblTitle.Size = new System.Drawing.Size(91, 13);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Manage Sessions";
             // 
@@ -116,6 +116,7 @@
             this.Controls.Add(this.lblTitle);
             this.Name = "SessionForm";
             this.Text = "SessionForm";
+            this.Load += new System.EventHandler(this.SessionForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

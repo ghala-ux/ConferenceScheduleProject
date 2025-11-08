@@ -43,6 +43,10 @@ namespace ConferenceScheduleM
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddSessionForm addForm = new AddSessionForm(manager);
+            if (Owner is Form1 main && main.isDarkMode)
+            {
+                addForm.ApplyDarkMode();
+            }
             addForm.ShowDialog(); // Use ShowDialog for modal window
             RefreshList();
         }
@@ -121,5 +125,59 @@ namespace ConferenceScheduleM
 
             MessageBox.Show(allSessions, "All Sessions");
         }
+
+        private void SessionForm_Load(object sender, EventArgs e)
+        {
+
+        }
+        // دالة اللون
+        public void ApplyDarkMode()
+        {
+            this.BackColor = Color.Black;
+            this.ForeColor = Color.White;
+            ApplyDarkStyle(this);
+        }
+
+        private void ApplyDarkStyle(Control parent)
+        {
+            foreach (Control ctrl in parent.Controls)
+            {
+                if (ctrl is Button)
+                {
+                    ctrl.BackColor = Color.Gray;
+                    ctrl.ForeColor = Color.White;
+                }
+                else if (ctrl is TextBox || ctrl is ComboBox)
+                {
+                    ctrl.BackColor = Color.DimGray;
+                    ctrl.ForeColor = Color.White;
+                }
+                else if (ctrl is Label)
+                {
+                    ctrl.ForeColor = Color.White;
+                }
+                else if (ctrl is DateTimePicker picker)
+                {
+                    picker.CalendarMonthBackground = Color.DimGray;
+                    picker.CalendarForeColor = Color.White;
+                    picker.BackColor = Color.DimGray;
+                    picker.ForeColor = Color.White;
+                }
+                else if (ctrl is DataGridView dgv)
+                {
+                    dgv.BackgroundColor = Color.Black;
+                    dgv.ForeColor = Color.White;
+                    dgv.GridColor = Color.Gray;
+                }
+                else if (ctrl is Panel panel)
+                {
+                    panel.BackColor = Color.FromArgb(230, 230, 230); // 🤍 أبيض فاتح مكسور
+                    ApplyDarkStyle(panel);
+                }
+            }
+        }
+
+
+
     }
 }
